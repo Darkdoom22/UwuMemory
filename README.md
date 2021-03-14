@@ -1,4 +1,3 @@
-# UwuMemory
 # C# Memory Library for .NET 5
 
 
