@@ -30,8 +30,8 @@ You can then access the rpm/wpm wrappers with:
 
 ```csharp
 
-Int32 someValue = mem.rpm<Int32>(address)
-byte[] someBuffer = mem.rpm(address, bytesToRead)
+Int32 someValue = mem.rpm<Int32>(someAddress)
+byte[] someBuffer = mem.rpm(someAddress, bytesToRead)
 
 mem.wpm<Int32>(someAddress, someValue)
 mem.wpm(someAddress, someBuffer)```
