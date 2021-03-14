@@ -1,21 +1,21 @@
 # UwuMemory
-C# Memory Library for .NET 5
+# C# Memory Library for .NET 5
 
 
 suuuper alpha, lots to do. Uses function delegate pointers as outlined here instead of PInvoke: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-9.0/function-pointers
 
-Fully Implemented:
-  NtReadVirtualMemory
-  WriteProcessMemory
-  VirtualQueryEx
+  Fully Implemented:
+   - NtReadVirtualMemory
+   - WriteProcessMemory
+   - VirtualQueryEx
  
-Planned:
-  NtWriteVirtualMemory
-  NtAllocateVirtualMemory
-  NtFreeVirtualMemory
-  NtProtectVirtualMemory
-  VirtualProtectEx
-  Pattern scanning
+  Planned:
+   - NtWriteVirtualMemory
+   - NtAllocateVirtualMemory
+   - NtFreeVirtualMemory
+   - NtProtectVirtualMemory
+   - VirtualProtectEx
+   - Pattern scanning
 
 Usage:
   
