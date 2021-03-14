@@ -9,17 +9,7 @@ using System.Threading.Tasks;
 namespace UwuMemory
 {
 
-    [StructLayout(LayoutKind.Sequential)]
-    public struct MemoryBasicInformation
-    {
-        public IntPtr BaseAddress;
-        public IntPtr AllocationBase;
-        public uint AllocationProtect;
-        public IntPtr RegionSize;
-        public uint State;
-        public uint Protect;
-        public uint Type;
-    }
+
 
     public unsafe static class K32
     {

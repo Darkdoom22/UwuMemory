@@ -7,6 +7,20 @@ using System.Runtime.InteropServices;
 
 namespace UwuMemory
 {
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct MemoryBasicInformation
+    {
+        public IntPtr BaseAddress;
+        public IntPtr AllocationBase;
+        public uint AllocationProtect;
+        public IntPtr RegionSize;
+        public uint State;
+        public uint Protect;
+        public uint Type;
+    }
+
+
     [Flags]
     public enum NTSTATUS : uint
     {
@@ -17,9 +31,6 @@ namespace UwuMemory
         _ProcedureNotFound = 0xC000007A,
     }
 
-    /// <summary>
-    /// Defines the protection to be applied to a region of virtual memory
-    /// </summary>
     [Flags]
     public enum PageProtection
     {
@@ -38,9 +49,6 @@ namespace UwuMemory
         NoCache = 0x200,
     }
 
-    /// <summary>
-    /// Defines the different types of memory allocations.
-    /// </summary>
     [Flags]
     public enum AllocationType : uint
     {
@@ -57,9 +65,6 @@ namespace UwuMemory
         LargePages = 0x20000000
     }
 
-    /// <summary>
-    /// Defines the different types of free operations.
-    /// </summary>
     [Flags]
     public enum FreeType : uint
     {
