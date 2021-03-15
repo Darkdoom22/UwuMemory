@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\darkd\\source\\repos\\UwuMemory\\ClassLibrary2\\UwuMemory.csproj": {}
+    "C:\\Users\\darkd\\source\\repos\\UwuMemory\\UwuMemory\\UwuMemory.csproj": {}
   },
   "projects": {
-    "C:\\Users\\darkd\\source\\repos\\UwuMemory\\ClassLibrary2\\UwuMemory.csproj": {
+    "C:\\Users\\darkd\\source\\repos\\UwuMemory\\UwuMemory\\UwuMemory.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\darkd\\source\\repos\\UwuMemory\\ClassLibrary2\\UwuMemory.csproj",
+        "projectUniqueName": "C:\\Users\\darkd\\source\\repos\\UwuMemory\\UwuMemory\\UwuMemory.csproj",
         "projectName": "UwuMemory",
-        "projectPath": "C:\\Users\\darkd\\source\\repos\\UwuMemory\\ClassLibrary2\\UwuMemory.csproj",
+        "projectPath": "C:\\Users\\darkd\\source\\repos\\UwuMemory\\UwuMemory\\UwuMemory.csproj",
         "packagesPath": "C:\\Users\\darkd\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\darkd\\source\\repos\\UwuMemory\\ClassLibrary2\\obj\\",
+        "outputPath": "C:\\Users\\darkd\\source\\repos\\UwuMemory\\UwuMemory\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

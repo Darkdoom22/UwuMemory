@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UwuMemory", "ClassLibrary2\UwuMemory.csproj", "{344C470F-38DC-4FAF-98C4-BCA4603C0182}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UwuMemory", "UwuMemory\UwuMemory.csproj", "{344C470F-38DC-4FAF-98C4-BCA4603C0182}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
