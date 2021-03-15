@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 namespace UwuMemory
 {
 
-
-
     public unsafe static class K32
     {
 
