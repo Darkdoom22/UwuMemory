@@ -23,15 +23,19 @@ Create a new UwuMem object by passing the target Process ID to the constructor:
 
 ```csharp
 
-UwuMem mem = new UwuMem(pId)
+UwuMem mem = new UwuMem(pId);
 ```
 
 You can then access the rpm/wpm wrappers with:
 
 ```csharp
+//Read an Int32(4 bytes) value from some Address in your target process
+Int32 someValue = mem.rpm<Int32>(someAddress);
+//Read an array of bytes from some Address in your target process
+byte[] someBuffer = mem.rpm(someAddress, bytesToRead);
 
-Int32 someValue = mem.rpm<Int32>(someAddress)
-byte[] someBuffer = mem.rpm(someAddress, bytesToRead)
-
-mem.wpm<Int32>(someAddress, someValue)
-mem.wpm(someAddress, someBuffer)```
+//Write an Int32(4 bytes) value to some Address in your target process
+mem.wpm<Int32>(someAddress, someValue);
+//Write an array of bytes to some Address in your target process
+mem.wpm(someAddress, someBuffer);
+```
