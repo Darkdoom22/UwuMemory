@@ -204,33 +204,27 @@ namespace UwuMemory
             {
                 return default(T);
             }
-
-            Console.Write(memInfo.State.ToString("X") + Environment.NewLine);
+            
             int size = Marshal.SizeOf<T>();
             IntPtr bytesRead;
-            IntPtr buffer = Marshal.AllocHGlobal(size);
-            uint read = NtDll.NtReadVirtualMemory(_sHandle, baseAddress, (void*)buffer, size, out bytesRead);
-
-            NTSTATUS stat = (NTSTATUS)read;
-
-
-            if (stat != NTSTATUS._StatusSuccess)
+            byte[] buffer = new byte[size];
+            NTSTATUS status;
+     
+            fixed(byte* bufferPtr = buffer)
             {
-                Console.Write($"Failed to read from a region of virtual memory : {baseAddress.ToString("X")} : {stat}" + Environment.NewLine);
-                throw new Exception($"[UwuMem] Failed to read from a region in process memory at: {baseAddress.ToString("X")}" + Environment.NewLine);
-            }
+                status = (NTSTATUS)NtDll.NtReadVirtualMemory(_sHandle, baseAddress, bufferPtr, size, out bytesRead);
 
-            try
-            {
-                return Marshal.PtrToStructure<T>(buffer);
-            }
-            finally
-            {
-                Marshal.FreeHGlobal(buffer);
+                if (status != NTSTATUS._StatusSuccess)
+                {
+                    throw new Exception($"[UwuMem] Failed to read from a region in process memory at: {baseAddress.ToString("X")}" + Environment.NewLine);
+                }
+
+
+                return Marshal.PtrToStructure<T>((IntPtr)bufferPtr);
+
             }
 
         }
-
 
         /// <summary>
         /// read an array of bytes from target memory location in process's memory
@@ -240,17 +234,16 @@ namespace UwuMemory
         /// <returns></returns>
         private unsafe byte[] _ReadVirtualMemory(IntPtr baseAddress, int toRead)
         {
-            var buffer = Marshal.AllocHGlobal(toRead);
-            byte[] read = new byte[toRead];
+            byte[] buffer = new byte[toRead];
             IntPtr bytesRead;
 
-            NTSTATUS status = (NTSTATUS)NtDll.NtReadVirtualMemory(_sHandle, baseAddress, (void*)buffer, toRead, out bytesRead);
+            fixed (byte* bufferPtr = buffer)
+            {
+                NTSTATUS status = (NTSTATUS)NtDll.NtReadVirtualMemory(_sHandle, baseAddress, bufferPtr, toRead, out bytesRead);
 
-            Marshal.Copy(buffer, read, 0, toRead);
-            Marshal.FreeHGlobal(buffer);
-
-            return read;
-
+                Marshal.Copy((IntPtr)bufferPtr, buffer, 0, toRead);
+                return buffer;
+            }
         }
 
         public bool wpm<T>(IntPtr baseAddress, T data) where T : struct
